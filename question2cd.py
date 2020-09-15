@@ -48,31 +48,22 @@ yInput = inputFromCSV[1]
 
 retVal = question2(xInput, yInput)
 
-# print(retVal.get('w'))
-# print(retVal.get('b'))
-
-# b ----------------------------------------------------------------------------
+# c ----------------------------------------------------------------------------
 
 newY = question2bHelper(xInput, yInput)
 oldY = yInput[7:]
 
 xAxis = np.arange(1, 214)
 
-# plt.scatter(xAxis, oldY, c="black", s=10)
-
-# plt.scatter(xAxis, newY, c="red", s=10)
-
-# plt.xlabel("Days since start of outbreak")
-# plt.ylabel("Death Count")
-
-# plt.show()
-
-# c ----------------------------------------------------------------------------
-
 errors = oldY - newY
 
 mean = np.mean(errors)
 var = np.var(errors)
+
+print(mean)
+print(var)
+
+# d ----------------------------------------------------------------------------
 
 plt.hist(errors, 100, density=True)
 
@@ -84,4 +75,5 @@ plt.plot(x1, y1, linewidth=2)
 plt.xlabel("Error")
 plt.ylabel("Density")
 
+plt.savefig('hist_density.png')
 plt.show()
